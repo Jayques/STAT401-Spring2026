@@ -1,27 +1,42 @@
-#01/16/2026, Jayques Nelson
-#Purpose: Testing T-Test
+#01/26/2026, Jayques Nelson
+#Purpose: Adding a title to plot
 
 #Generate dummy dataset
 x = rnorm(10)
 y = rnorm(10)
 
-#Plot the variables x and y using a density plot
+#Option A
+#Plot the variables x and y using a density plot & title
+#title passed as argument - less compute
+#Add labels to X and Y axis, and label names should be X = "Sequence", Y = "Density of X and Y"
+#Create a dashed line instead pf continuous line
+
 pts = seq(-4.5,4.5,length=100)
-plot(pts,dt(pts,df=9),col='red',type='l')
+plot(pts,dt(pts,df=9),col='red',type='l',main="T Test",
+     xlab = "Sequence",ylab = "Density of X and Y",lty=2) 
 lines(density(x), col='green')
 lines(density(y), col='blue')
+
+#Option B - passing title as a function
+#Plot the variables x and y using a density plot & title
+pts = seq(-4.5,4.5,length=100)
+plot(pts,dt(pts,df=9),col='red',type='l')
+title(main = "T Test")    #title passed as function - more compute
+lines(density(x), col='green')
+lines(density(y), col='blue')
+
 
 #Apply the function for t-test
 ttest = t.test(x,y) 
 
-#T-test results
+#T Test Results
 Welch Two Sample t-test
 
 data:  x and y
-t = -1.1485, df = 15.59, p-value = 0.2681
+t = 1.587, df = 17.941, p-value = 0.13
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
-  -1.0586475  0.3156739
+  -0.2015815  1.4453555
 sample estimates:
-  mean of x   mean of y 
--0.05163308  0.31985371 
+  mean of x  mean of y 
+0.2561163 -0.3657708 
