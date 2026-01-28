@@ -1,4 +1,4 @@
-#01/26/2026, Jayques Nelson
+#01/28/2026, Jayques Nelson
 #Purpose: Adding a title to plot
 
 #Generate dummy dataset
@@ -10,10 +10,10 @@ y = rnorm(10)
 #title passed as argument - less compute
 #Add labels to X and Y axis, and label names should be X = "Sequence", Y = "Density of X and Y"
 #Create a dashed line instead pf continuous line
-
+#Adjust scale of Y axis such that it fits all the curves opn plot
 pts = seq(-4.5,4.5,length=100)
 plot(pts,dt(pts,df=9),col='red',type='l',main="T Test",
-     xlab = "Sequence",ylab = "Density of X and Y",lty=2) 
+     xlab = "Sequence",ylab = "Density of X and Y",lty=2, ylim = c(0, 0.8)) 
 lines(density(x), col='green')
 lines(density(y), col='blue')
 
