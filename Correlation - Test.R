@@ -33,3 +33,12 @@ sample estimates:
 -0.8676594
 
 #Accept the alternative hypothesis!
+
+
+
+#Set the working directory
+setwd("C:/Users/jayqu/Desktop/CLASSES 2025-2026/SPRING2026/DATA ANALYSIS/")
+
+#Read data.csv file in R
+data <-read.csv("data.csv", header=TRUE)
+
